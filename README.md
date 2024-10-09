@@ -2,6 +2,8 @@
 
 Welcome to the Pac-Man game! This is a simple implementation of the classic arcade game, where you control Pac-Man to eat dots while avoiding ghosts. 
 
+![Game Screenshot]([screenshot.png](https://i.postimg.cc/HxnFv6YB/image.png))
+
 ## Technologies Used
 - **HTML**: Markup for the game layout.
 - **CSS**: Styling for the game board and characters.

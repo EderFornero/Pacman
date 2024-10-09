@@ -32,4 +32,4 @@ Welcome to the Pac-Man game! This is a simple implementation of the classic arca
 To get started with this project, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/EderFornero/pacman-game.git
+git clone https://github.com/EderFornero/pacman.git

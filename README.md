@@ -10,7 +10,7 @@ Welcome to the Pac-Man game! This is a simple implementation of the classic arca
 - **JavaScript**: Game logic and interactivity.
 - **ES6 Modules**: Organized code structure using JavaScript modules.
 
-![Game Controls](https://i.pinimg.com/originals/b4/ee/c4/b4eec4d093adbe9d8a3cbb40d024836a.png)
+![Game Controls](https://static.thenounproject.com/png/3584815-200.png)
 
 ## Game Controls
 - **Arrow Up**: Move Up

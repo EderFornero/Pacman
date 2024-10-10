@@ -8,6 +8,7 @@ class GameBoard {
   }
 
   showGameStatus(gameWin) {
+    // Create and show game win or game over
     const div = document.createElement('div');
     div.classList.add('game-status');
     div.innerHTML = `${gameWin ? 'WIN!' : 'GAME OVER!'}`;
@@ -28,6 +29,7 @@ class GameBoard {
       this.DOMGrid.appendChild(div);
       this.grid.push(div);
 
+      // Add dots
       if (CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
     });
   }
@@ -39,8 +41,8 @@ class GameBoard {
   removeObject(pos, classes) {
     this.grid[pos].classList.remove(...classes);
   }
-
-  objectExist = (pos, object) => {
+  // Can have an arrow function here cause of this binding
+  objectExist(pos, object) {
     return this.grid[pos].classList.contains(object);
   };
 
@@ -56,9 +58,9 @@ class GameBoard {
       const { classesToRemove, classesToAdd } = character.makeMove();
 
       if (character.rotation && nextMovePos !== character.pos) {
-        // rotate
+        // Rotate
         this.rotateDiv(nextMovePos, character.dir.rotation);
-        // rotate the previous div back
+        // Rotate the previous div back
         this.rotateDiv(character.pos, 0);
       }
 

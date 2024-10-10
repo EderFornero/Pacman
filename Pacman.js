@@ -11,7 +11,7 @@ class Pacman {
   }
 
   shouldMove() {
-    // Don't move before a key is pressed
+    // if not exist a key pressed, don't move
     if (!this.dir) return;
 
     if (this.timer === this.speed) {
@@ -23,7 +23,7 @@ class Pacman {
 
   getNextMove(objectExist) {
     let nextMovePos = this.pos + this.dir.movement;
-    // Do we collide with a wall?
+    //check if next move is a wall or a ghost
     if (
       objectExist(nextMovePos, OBJECT_TYPE.WALL) ||
       objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)

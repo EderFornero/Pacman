@@ -28,8 +28,12 @@ Welcome to the Pac-Man game! This is a simple implementation of the classic arca
 - **Power-ups**: Collect power pills to gain temporary invincibility.
 - **Score Tracking**: Keep track of your score as you collect dots and power-ups.
 
+## Issues
+If you have any issue, please delete .parcel-cache and dist folders, then start again.
+
 ## Installation
 To get started with this project, clone the repository to your local machine:
 
 ```bash
 https://github.com/EderFornero/Pacman.git
+

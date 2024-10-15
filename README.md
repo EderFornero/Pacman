@@ -40,4 +40,8 @@ https://github.com/EderFornero/Pacman.git
 ## Issues
 If you have any issue, please delete .parcel-cache and dist folders, then start again.
 
+## Acknowledgements
+Special thanks to [weibenfalk](https://github.com/weibenfalk) for their inspiration and support in creating this project.
+
+
 

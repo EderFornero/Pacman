@@ -594,6 +594,16 @@ var _pacman = require("./Pacman");
 var _pacmanDefault = parcelHelpers.interopDefault(_pacman);
 var _ghost = require("./Ghost");
 var _ghostDefault = parcelHelpers.interopDefault(_ghost);
+var _munchWav = require("url:./sounds/munch.wav");
+var _munchWavDefault = parcelHelpers.interopDefault(_munchWav);
+var _pillWav = require("url:./sounds/pill.wav");
+var _pillWavDefault = parcelHelpers.interopDefault(_pillWav);
+var _gameStartWav = require("url:./sounds/game_start.wav");
+var _gameStartWavDefault = parcelHelpers.interopDefault(_gameStartWav);
+var _deathWav = require("url:./sounds/death.wav");
+var _deathWavDefault = parcelHelpers.interopDefault(_deathWav);
+var _eatGhostWav = require("url:./sounds/eat_ghost.wav");
+var _eatGhostWavDefault = parcelHelpers.interopDefault(_eatGhostWav);
 const gameGrid = document.querySelector("#game");
 const scoreTable = document.querySelector("#score");
 const startButton = document.querySelector("#start-button");
@@ -605,7 +615,12 @@ let timer = null;
 let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
+function playAudio(sound) {
+    const soundEffect = new Audio(sound);
+    soundEffect.play();
+}
 function gameOver(pacman, grid) {
+    playAudio((0, _deathWavDefault.default));
     document.removeEventListener("keydown", (e)=>pacman.handleKeyInput(e, gameBoard.objectExist));
     gameBoard.showGameStatus(gameWin);
     clearInterval(timer);
@@ -615,7 +630,7 @@ function checkCollision(pacman, ghosts) {
     const collidedGhost = ghosts.find((ghost)=>pacman.pos === ghost.pos);
     if (collidedGhost) {
         if (pacman.powerPill) {
-            playAudio(soundGhost);
+            playAudio((0, _eatGhostWavDefault.default));
             gameBoard.removeObject(collidedGhost.pos, [
                 (0, _setup.OBJECT_TYPE).GHOST,
                 (0, _setup.OBJECT_TYPE).SCARED,
@@ -637,8 +652,47 @@ function gameLoop(pacman, ghosts) {
     checkCollision(pacman, ghosts);
     ghosts.forEach((ghost)=>gameBoard.moveCharacter(ghost));
     checkCollision(pacman, ghosts);
+    //eats a dot?
+    if (gameBoard.objectExist(pacman.pos, [
+        (0, _setup.OBJECT_TYPE).DOT
+    ])) {
+        playAudio((0, _munchWavDefault.default));
+        gameBoard.removeObject(pacman.pos, [
+            (0, _setup.OBJECT_TYPE).DOT
+        ]);
+        gameBoard.dotCount--;
+        score += 10;
+    }
+    //eats a pill?
+    if (gameBoard.objectExist(pacman.pos, [
+        (0, _setup.OBJECT_TYPE).PILL
+    ])) {
+        playAudio((0, _pillWavDefault.default));
+        gameBoard.removeObject(pacman.pos, [
+            (0, _setup.OBJECT_TYPE).PILL
+        ]);
+        pacman.powerPill = true;
+        score += 50;
+        clearTimeout(powerPillTimer);
+        powerPillTimer = setTimeout(()=>{
+            pacman.powerPill = false;
+        //after 10 seconds
+        }, POWER_PILL_TIME);
+    }
+    //ghost scared?
+    if (pacman.powerPill !== powerPillActive) {
+        powerPillActive = pacman.powerPill;
+        ghosts.forEach((ghost)=>ghost.isScared = pacman.powerPill);
+    }
+    //eats all dots?
+    if (gameBoard.dotCount === 0) {
+        gameWin = true;
+        gameOver(pacman, ghosts);
+    }
+    scoreTable.innerHTML = `Score: ${score}`;
 }
 function startGame() {
+    playAudio((0, _gameStartWavDefault.default));
     gameWin = false;
     powerPillActive = false;
     score = 0;
@@ -661,7 +715,7 @@ function startGame() {
 // Initialize game
 startButton.addEventListener("click", startGame);
 
-},{"./setup":"b1uhz","./ghostMoves":"496HT","./GameBoard":"2NYHR","./Pacman":"dnwXd","./Ghost":"1xT3w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b1uhz":[function(require,module,exports) {
+},{"./setup":"b1uhz","./ghostMoves":"496HT","./GameBoard":"2NYHR","./Pacman":"dnwXd","./Ghost":"1xT3w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:./sounds/munch.wav":"75glw","url:./sounds/pill.wav":"br4y3","url:./sounds/game_start.wav":"3va7m","url:./sounds/death.wav":"i3Mb6","url:./sounds/eat_ghost.wav":"8UF2M"}],"b1uhz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "GRID_SIZE", ()=>GRID_SIZE);
@@ -1416,6 +1470,56 @@ class Ghost {
 }
 exports.default = Ghost;
 
-},{"./setup":"b1uhz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["km5uZ","bB7Pu"], "bB7Pu", "parcelRequiref884")
+},{"./setup":"b1uhz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"75glw":[function(require,module,exports) {
+module.exports = require("97e67b7262fe8c8c").getBundleURL("UckoE") + "munch.24c0ad96.wav" + "?" + Date.now();
+
+},{"97e67b7262fe8c8c":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"br4y3":[function(require,module,exports) {
+module.exports = require("59ede185c61fa951").getBundleURL("UckoE") + "pill.eab9f9e4.wav" + "?" + Date.now();
+
+},{"59ede185c61fa951":"lgJ39"}],"3va7m":[function(require,module,exports) {
+module.exports = require("13e30d71d35ae343").getBundleURL("UckoE") + "game_start.8758b297.wav" + "?" + Date.now();
+
+},{"13e30d71d35ae343":"lgJ39"}],"i3Mb6":[function(require,module,exports) {
+module.exports = require("e8376a56c76a8e87").getBundleURL("UckoE") + "death.b1646b0c.wav" + "?" + Date.now();
+
+},{"e8376a56c76a8e87":"lgJ39"}],"8UF2M":[function(require,module,exports) {
+module.exports = require("5c8d901bf072577a").getBundleURL("UckoE") + "eat_ghost.3728d1b1.wav" + "?" + Date.now();
+
+},{"5c8d901bf072577a":"lgJ39"}]},["km5uZ","bB7Pu"], "bB7Pu", "parcelRequiref884")
 
 //# sourceMappingURL=index.3d214d75.js.map

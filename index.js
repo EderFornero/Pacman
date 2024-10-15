@@ -1,18 +1,23 @@
-import { LEVEL, OBJECT_TYPE } from './setup';
-import { ghostMoves } from './ghostMoves';
+import { LEVEL, OBJECT_TYPE } from "./setup";
+import { ghostMoves } from "./ghostMoves";
 // Classes
-import GameBoard from './GameBoard';
-import Pacman from './Pacman';
-import Ghost from './Ghost';
+import GameBoard from "./GameBoard";
+import Pacman from "./Pacman";
+import Ghost from "./Ghost";
 
-const gameGrid = document.querySelector('#game');
-const scoreTable = document.querySelector('#score');
-const startButton = document.querySelector('#start-button');
+import soundDot from "url:./sounds/munch.wav";
+import soundPill from "url:./sounds/pill.wav";
+import soundGameStart from "url:./sounds/game_start.wav";
+import soundGameOver from "url:./sounds/death.wav";
+import soundGhost from "url:./sounds/eat_ghost.wav";
+
+const gameGrid = document.querySelector("#game");
+const scoreTable = document.querySelector("#score");
+const startButton = document.querySelector("#start-button");
 
 const POWER_PILL_TIME = 10000; // ms
 const GLOBAL_SPEED = 80; // ms
 const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL);
-
 
 let score = 0;
 let timer = null;
@@ -20,16 +25,22 @@ let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
 
+function playAudio(sound) {
+  const soundEffect = new Audio(sound);
+  soundEffect.play();
+}
 
 function gameOver(pacman, grid) {
-    document.removeEventListener('keydown', e => 
-      pacman.handleKeyInput(e, gameBoard.objectExist)
-    )
+  playAudio(soundGameOver);
 
-    gameBoard.showGameStatus(gameWin)
-    clearInterval(timer);
+  document.removeEventListener("keydown", (e) =>
+    pacman.handleKeyInput(e, gameBoard.objectExist)
+  );
 
-    startButton.classList.remove('hide');
+  gameBoard.showGameStatus(gameWin);
+  clearInterval(timer);
+
+  startButton.classList.remove("hide");
 }
 
 function checkCollision(pacman, ghosts) {
@@ -38,10 +49,11 @@ function checkCollision(pacman, ghosts) {
   if (collidedGhost) {
     if (pacman.powerPill) {
       playAudio(soundGhost);
+
       gameBoard.removeObject(collidedGhost.pos, [
         OBJECT_TYPE.GHOST,
         OBJECT_TYPE.SCARED,
-        collidedGhost.name
+        collidedGhost.name,
       ]);
       collidedGhost.pos = collidedGhost.startPos;
       score += 100;
@@ -54,29 +66,68 @@ function checkCollision(pacman, ghosts) {
 }
 
 function gameLoop(pacman, ghosts) {
-
   gameBoard.moveCharacter(pacman);
   checkCollision(pacman, ghosts);
 
   ghosts.forEach((ghost) => gameBoard.moveCharacter(ghost));
   checkCollision(pacman, ghosts);
 
+  //eats a dot?
+  if (gameBoard.objectExist(pacman.pos, [OBJECT_TYPE.DOT])) {
+    playAudio(soundDot);
+
+    gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
+
+    gameBoard.dotCount--;
+    score += 10;
+  }
+
+  //eats a pill?
+  if (gameBoard.objectExist(pacman.pos, [OBJECT_TYPE.PILL])) {
+    playAudio(soundPill);
+
+    gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
+
+    pacman.powerPill = true;
+    score += 50;
+
+    clearTimeout(powerPillTimer);
+
+    powerPillTimer = setTimeout(() => {
+      pacman.powerPill = false;
+      //after 10 seconds
+    }, POWER_PILL_TIME);
+  }
+
+  //ghost scared?
+  if (pacman.powerPill !== powerPillActive) {
+    powerPillActive = pacman.powerPill;
+    ghosts.forEach((ghost) => (ghost.isScared = pacman.powerPill));
+  }
+
+  //eats all dots?
+  if (gameBoard.dotCount === 0) {
+    gameWin = true;
+    gameOver(pacman, ghosts);
+  }
+
+  scoreTable.innerHTML = `Score: ${score}`;
 }
 
 function startGame() {
-
+  playAudio(soundGameStart);
 
   gameWin = false;
   powerPillActive = false;
   score = 0;
 
-  startButton.classList.add('hide');
+  startButton.classList.add("hide");
 
   gameBoard.createGrid(LEVEL);
 
   const pacman = new Pacman(2, 287);
   gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
-  document.addEventListener('keydown', (e) =>
+  document.addEventListener("keydown", (e) =>
     pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
   );
 
@@ -84,7 +135,7 @@ function startGame() {
     new Ghost(5, 188, ghostMoves, OBJECT_TYPE.BLINKY),
     new Ghost(4, 209, ghostMoves, OBJECT_TYPE.PINKY),
     new Ghost(3, 230, ghostMoves, OBJECT_TYPE.INKY),
-    new Ghost(2, 251, ghostMoves, OBJECT_TYPE.CLYDE)
+    new Ghost(2, 251, ghostMoves, OBJECT_TYPE.CLYDE),
   ];
 
   // Gameloop
@@ -92,4 +143,4 @@ function startGame() {
 }
 
 // Initialize game
-startButton.addEventListener('click', startGame);
+startButton.addEventListener("click", startGame);

@@ -1,4 +1,4 @@
-8307
+8312
 35C:\Users\Eder\Desktop\pacman\sounds133729727967656190 1
 68C:\Users\Eder\Desktop\pacman\node_modules\svgo\plugins\reusePaths.js133729749065412996 0
 70C:\Users\Eder\Desktop\pacman\node_modules\lodash\fp\matchesProperty.js133729748777853196 0
@@ -23,7 +23,7 @@
 61C:\Users\Eder\Desktop\pacman\node_modules\svgo\lib\types.d.ts133729749040652957 0
 60C:\Users\Eder\Desktop\pacman\node_modules\lodash\template.js133729748781156236 0
 104C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\css\at-rules.json133729749062012720 0
-33C:\Users\Eder\Desktop\pacman\dist133734651393484991 1
+33C:\Users\Eder\Desktop\pacman\dist133734668233734112 1
 51C:\Users\Eder\Desktop\pacman\node_modules\@mischnic133729749013598062 1
 69C:\Users\Eder\Desktop\pacman\node_modules\source-map\lib\array-set.js133729749024503207 0
 90C:\Users\Eder\Desktop\pacman\node_modules\css-select\node_modules\domutils\lib\legacy.d.ts133729749077316370 0
@@ -97,7 +97,7 @@
 103C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-svg\node_modules\semver\ranges\outside.js133729749069589818 0
 76C:\Users\Eder\Desktop\pacman\node_modules\cosmiconfig\dist\getDirectory.d.ts133729749049037160 0
 47C:\Users\Eder\Desktop\pacman\node_modules\clone133729749024854556 1
-52C:\Users\Eder\Desktop\pacman\dist\title.e20ff4d7.png133734651386346733 0
+52C:\Users\Eder\Desktop\pacman\dist\title.e20ff4d7.png133734668233428602 0
 63C:\Users\Eder\Desktop\pacman\node_modules\lodash\_asciiWords.js133729748766741155 0
 66C:\Users\Eder\Desktop\pacman\node_modules\lodash\fp\isMatchWith.js133729748776678626 0
 60C:\Users\Eder\Desktop\pacman\node_modules\lodash\debounce.js133729748773502326 0
@@ -119,7 +119,7 @@
 103C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\lib\svgo-node.js133729749080859683 0
 56C:\Users\Eder\Desktop\pacman\node_modules\dom-serializer133729749032178060 1
 78C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-raw\package.json133729749039879093 0
-37C:\Users\Eder\Desktop\pacman\index.js133734651374965703 0
+37C:\Users\Eder\Desktop\pacman\index.js133734668230472884 0
 90C:\Users\Eder\Desktop\pacman\node_modules\htmlnano\lib\modules\sortAttributesWithLists.cjs133729749039999451 0
 63C:\Users\Eder\Desktop\pacman\node_modules\resolve\lib\caller.js133729748766630675 0
 76C:\Users\Eder\Desktop\pacman\node_modules\@babel\traverse\lib\path\inference133729748766776222 1
@@ -1360,6 +1360,7 @@
 86C:\Users\Eder\Desktop\pacman\node_modules\@babel\core\lib\config\config-descriptors.js133729748766043936 0
 72C:\Users\Eder\Desktop\pacman\node_modules\cosmiconfig\dist\util.d.ts.map133729749041079050 0
 77C:\Users\Eder\Desktop\pacman\node_modules\caniuse-lite\data\features\const.js133729749071080408 0
+56C:\Users\Eder\Desktop\pacman\dist\eat_ghost.3728d1b1.wav133734668233152982 0
 84C:\Users\Eder\Desktop\pacman\node_modules\svgo\plugins\removeUselessStrokeAndFill.js133729749063417000 0
 69C:\Users\Eder\Desktop\pacman\node_modules\css-select\lib\esm\types.js133729749036522365 0
 73C:\Users\Eder\Desktop\pacman\node_modules\caniuse-lite\data\regions\SD.js133729749121961220 0
@@ -1938,7 +1939,7 @@
 65C:\Users\Eder\Desktop\pacman\node_modules\react-refresh\README.md133729749033417791 0
 97C:\Users\Eder\Desktop\pacman\node_modules\react-refresh\cjs\react-refresh-babel.production.min.js133729749030139522 0
 81C:\Users\Eder\Desktop\pacman\node_modules\css-tree\cjs\syntax\node\Percentage.cjs133729749066270903 0
-55C:\Users\Eder\Desktop\pacman\dist\index.3d214d75.js.map133734651386545635 0
+55C:\Users\Eder\Desktop\pacman\dist\index.3d214d75.js.map133734668233573720 0
 99C:\Users\Eder\Desktop\pacman\node_modules\react-refresh\cjs\react-refresh-runtime.production.min.js133729749031716077 0
 59C:\Users\Eder\Desktop\pacman\node_modules\lodash\zipWith.js133729748782725047 0
 65C:\Users\Eder\Desktop\pacman\node_modules\@parcel\bundler-default133729749052531838 1
@@ -4456,7 +4457,7 @@
 93C:\Users\Eder\Desktop\pacman\node_modules\csso\node_modules\css-tree\cjs\syntax\node\Hash.cjs133729749072911647 0
 66C:\Users\Eder\Desktop\pacman\node_modules\dotenv-expand\index.d.ts133729749022400169 0
 89C:\Users\Eder\Desktop\pacman\node_modules\caniuse-lite\data\features\keyboardevent-key.js133729749106241857 0
-51C:\Users\Eder\Desktop\pacman\dist\icon.b1b2fa1c.png133734651384960446 0
+51C:\Users\Eder\Desktop\pacman\dist\icon.b1b2fa1c.png133734668233168062 0
 59C:\Users\Eder\Desktop\pacman\node_modules\dotenv-expand\lib133729749024814485 1
 61C:\Users\Eder\Desktop\pacman\node_modules\chalk\index.js.flow133729748764722077 0
 63C:\Users\Eder\Desktop\pacman\node_modules\dotenv-expand\LICENSE133729749022979008 0
@@ -6199,7 +6200,7 @@
 61C:\Users\Eder\Desktop\pacman\node_modules\base-x\src\index.js133729749028432527 0
 62C:\Users\Eder\Desktop\pacman\node_modules\argparse\argparse.js133729749022999845 0
 116C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeRasterImages.js133729749077572561 0
-51C:\Users\Eder\Desktop\pacman\dist\index.3d214d75.js133734651386520389 0
+51C:\Users\Eder\Desktop\pacman\dist\index.3d214d75.js133734668233553765 0
 79C:\Users\Eder\Desktop\pacman\node_modules\@parcel\utils\test\collection.test.js133729749062344058 0
 54C:\Users\Eder\Desktop\pacman\node_modules\argparse\lib133729749024834567 1
 58C:\Users\Eder\Desktop\pacman\node_modules\argparse\LICENSE133729749021253944 0
@@ -7102,6 +7103,7 @@
 105C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-html\node_modules\semver\functions\minor.js133729749069113281 0
 105C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-html\node_modules\semver\functions\parse.js133729749069986005 0
 105C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-html\node_modules\semver\functions\patch.js133729749070151592 0
+52C:\Users\Eder\Desktop\pacman\dist\death.b1646b0c.wav133734668233343352 0
 91C:\Users\Eder\Desktop\pacman\node_modules\@parcel\core\test\fixtures\custom-targets-distdir133729749096985727 1
 110C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-html\node_modules\semver\functions\prerelease.js133729749070553145 0
 109C:\Users\Eder\Desktop\pacman\node_modules\@parcel\transformer-html\node_modules\semver\functions\satisfies.js133729749072630746 0
@@ -7632,7 +7634,7 @@
 112C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\preset-default.js133729749074316453 0
 113C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\convertor\index.js133729749079690300 0
 112C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeComments.js133729749075234715 0
-44C:\Users\Eder\Desktop\pacman\dist\index.html133734651393414461 0
+44C:\Users\Eder\Desktop\pacman\dist\index.html133734668233628915 0
 108C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeDesc.js133729749075530624 0
 114C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeDimensions.js133729749075756517 0
 111C:\Users\Eder\Desktop\pacman\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeDoctype.js133729749075957194 0
@@ -8303,6 +8305,9 @@
 55C:\Users\Eder\Desktop\pacman\node_modules\.bin\svgo.cmd133729749140354791 0
 55C:\Users\Eder\Desktop\pacman\node_modules\.bin\svgo.ps1133729749140344789 0
 69C:\Users\Eder\Desktop\pacman\node_modules\.bin\update-browserslist-db133729749140334793 0
-57C:\Users\Eder\Desktop\pacman\dist\background.fe40e636.jpg133734651384992997 0
-52C:\Users\Eder\Desktop\pacman\dist\index.3a01df49.css133734651393458525 0
-56C:\Users\Eder\Desktop\pacman\dist\index.3a01df49.css.map133734651393469811 0
+57C:\Users\Eder\Desktop\pacman\dist\background.fe40e636.jpg133734668233273237 0
+57C:\Users\Eder\Desktop\pacman\dist\game_start.8758b297.wav133734668233418583 0
+52C:\Users\Eder\Desktop\pacman\dist\index.3a01df49.css133734668233693980 0
+56C:\Users\Eder\Desktop\pacman\dist\index.3a01df49.css.map133734668233714109 0
+52C:\Users\Eder\Desktop\pacman\dist\munch.24c0ad96.wav133734668233273237 0
+51C:\Users\Eder\Desktop\pacman\dist\pill.eab9f9e4.wav133734668233178165 0
